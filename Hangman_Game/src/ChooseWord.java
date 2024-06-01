@@ -30,7 +30,7 @@ public class ChooseWord {
             System.err.println("Error: " + illegalArgumentException);
         }
 
-        words = allWords.split("//s+");
+        words = allWords.split("\\s+");
 
         return words[randomNum.nextInt(words.length)];
     }
