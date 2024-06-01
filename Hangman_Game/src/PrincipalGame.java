@@ -12,7 +12,7 @@ public class PrincipalGame {
 
     public PrincipalGame() {
         this.gameStatus = GameStatus.CONTINUE;
-        this.lifes = 5;
+        this.lifes = 7;
         this.wasLetterChosen = new boolean[26];
         this.chosenWord = ChooseWord.chooseWord();
         this.hitVerificationWord = chosenWord;
@@ -24,18 +24,17 @@ public class PrincipalGame {
         System.out.printf("%s%n%s%n%s%n",
             "Welcome to Hangman Game. How to play: A word will be choosen randomly and its letters will be hidden.",
             "You have to choose letters to complete it, if you pick a wrong one you will lose 1 life.",
-            "You start the game with 5 lifes.");
+            "You start the game with 7 lifes.");
 
         while(game.getGameStatus() == GameStatus.CONTINUE){
             game.showPainelGame();
-            char c = game.requestInput();
-            game.pickLetter(c);
+            game.pickLetter(game.requestInput());
             game.verifyStatus();
         }
 
         switch(game.getGameStatus()) {
             case GameStatus.WON:
-            System.out.printf("%nCongratulations! You've won!");
+            System.out.printf("%n%s%nCongratulations! You've won!", game.getChosenWord().toUpperCase());
             break;
             case GameStatus.LOSE:
             System.out.printf("%nYou've lost. The word was %s.", game.getChosenWord());
@@ -71,13 +70,14 @@ public class PrincipalGame {
         String m = "";
         char character = ' ';
 
-        System.out.printf("%s%n%s", 
-            "Insert a letter:",
-            "? ");
+        System.out.printf("%s", 
+            "Insert a letter:");
 
             while(character == ' ') {
                 
                 try {
+                
+                System.out.print("\n? ");
                 m = input.next();
                 character = m.toLowerCase().charAt(0);
 
@@ -87,7 +87,7 @@ public class PrincipalGame {
                 }
                 else if(getwasLetterChosen()[(int) (character) - 97] == true) {
                     character = ' ';
-                    System.err.println("You've already chosen this letter. Choose another one.\n");
+                    System.err.println("You've already chosen this letter. Choose another one.");
                 }
             }
             catch(NoSuchElementException elementException) {
@@ -95,7 +95,6 @@ public class PrincipalGame {
                 character = ' ';
             }
 
-            System.out.print("? ");
         }
 
         return character;
@@ -113,7 +112,7 @@ public class PrincipalGame {
     public void verifyStatus() {
         if(getLifes() == 0)
             setGameStatus(GameStatus.LOSE);
-        else if(getHitVerificationWord() == "")
+        else if(getHitVerificationWord().equals(""))
             setGameStatus(GameStatus.WON);
     }
 
