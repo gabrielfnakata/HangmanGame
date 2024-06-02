@@ -17,7 +17,7 @@ The main of the Hangman Game include:
 
 ## **Libraries**
 
-### **Class ChosenWord**
+### **Class ChooseWord**
 ```java
 import java.util.Scanner;
 import java.nio.file.Paths;
@@ -31,6 +31,12 @@ import java.security.SecureRandom;
 ```java
 import java.util.Scanner;
 import java.util.NoSuchElementException;
+```
+
+### *Class HangmanMain**
+```java
+import functions.*;
+import functions.PrincipalGame.GameStatus;
 ```
 
 ## **How does it work?**
@@ -48,6 +54,7 @@ If you guess all the correct letters, the game is won.
 - **requestInput()**: Function that requests a letter and is also responsible for catching possible errors.
 - **pickLetter()**: Function that marks a selected letter (important for the *requestInput* function) and removes one life if it's a wrong letter.
 - **verifyGameStatus()**: Function that verifies if the player has either won or lost.
+- **closeInput()**: Function that closes the input.
 
 ## **Constructor**
 
