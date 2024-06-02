@@ -1,3 +1,5 @@
+package functions;
+
 import java.util.Scanner;
 import java.nio.file.Paths;
 import java.io.IOException;

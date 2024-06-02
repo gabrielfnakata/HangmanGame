@@ -6,11 +6,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HangmanMain",
+            "request": "launch",
+            "mainClass": "main.HangmanMain",
+            "projectName": "Hangman_Game_b8017cff",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "java",
             "name": "test",
             "request": "launch",
             "mainClass": "test",
             "projectName": "Hangman_Game_b8017cff",
-            "console": "integratedTerminal"
         },
         {
             "type": "java",
@@ -24,7 +31,6 @@
             "request": "launch",
             "mainClass": "PrincipalGame",
             "projectName": "Hangman_Game_b8017cff",
-            "console": "integratedTerminal"
         }
     ]
 }

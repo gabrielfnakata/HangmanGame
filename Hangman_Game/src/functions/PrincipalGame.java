@@ -1,14 +1,17 @@
+package functions;
+
 import java.util.Scanner;
 import java.util.NoSuchElementException;
 
 public class PrincipalGame {
     
-    private enum GameStatus {WON, LOSE, CONTINUE};
+    public enum GameStatus {WON, LOSE, CONTINUE};
     private GameStatus gameStatus;
     private int lifes;
     private String chosenWord;
     private boolean[] wasLetterChosen;
     private String hitVerificationWord;
+    private static Scanner input = new Scanner(System.in);
 
     public PrincipalGame() {
         this.gameStatus = GameStatus.CONTINUE;
@@ -16,33 +19,6 @@ public class PrincipalGame {
         this.wasLetterChosen = new boolean[26];
         this.chosenWord = ChooseWord.chooseWord();
         this.hitVerificationWord = chosenWord;
-    }
-    
-    public static void main(String[] args) {
-        PrincipalGame game = new PrincipalGame();
-        
-        System.out.printf("%s%n%s%n%s%n",
-            "Welcome to Hangman Game. How to play: A word will be choosen randomly and its letters will be hidden.",
-            "You have to choose letters to complete it, if you pick a wrong one you will lose 1 life.",
-            "You start the game with 7 lifes.");
-
-        while(game.getGameStatus() == GameStatus.CONTINUE){
-            game.showPainelGame();
-            game.pickLetter(game.requestInput());
-            game.verifyStatus();
-        }
-
-        switch(game.getGameStatus()) {
-            case GameStatus.WON:
-            System.out.printf("%n%s%nCongratulations! You've won!", game.getChosenWord().toUpperCase());
-            break;
-            case GameStatus.LOSE:
-            System.out.printf("%nYou've lost. The word was %s.", game.getChosenWord());
-            break;
-            default:
-            System.err.println("Error. Shutting down.");
-            System.exit(1);
-        }
     }
 
     public void showPainelGame() {
@@ -66,7 +42,7 @@ public class PrincipalGame {
     }
 
     public char requestInput() {
-        Scanner input = new Scanner(System.in);
+        
         String m = "";
         char character = ' ';
 
@@ -114,6 +90,11 @@ public class PrincipalGame {
             setGameStatus(GameStatus.LOSE);
         else if(getHitVerificationWord().equals(""))
             setGameStatus(GameStatus.WON);
+    }
+
+    public void closeInput() {
+        if(input == null)
+            input.close();
     }
 
     public GameStatus getGameStatus() {
