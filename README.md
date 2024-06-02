@@ -9,8 +9,7 @@ The main of the Hangman Game include:
 ### **1. Classes**
 
 - **ChooseWord**: This class is responsible for opening the *words.txt* and randomly picking a word.
-- **PrincipalGame**: This class is responsible for the principal functionalities of the game.
-- **HangmanMain**: Main Class responsible for executing the game.
+- **PrincipalGame**: Main class responsible for executing the game.
 
 ### **2. Files**
 
@@ -18,7 +17,7 @@ The main of the Hangman Game include:
 
 ## **Libraries**
 
-### **Class ChooseWord**
+### **Class ChosenWord**
 ```java
 import java.util.Scanner;
 import java.nio.file.Paths;
@@ -32,12 +31,6 @@ import java.security.SecureRandom;
 ```java
 import java.util.Scanner;
 import java.util.NoSuchElementException;
-```
-
-### **Class HangmanMain**
-```java
-import functions.*;
-import functions.PrincipalGame.GameStatus;
 ```
 
 ## **How does it work?**
@@ -55,7 +48,6 @@ If you guess all the correct letters, the game is won.
 - **requestInput()**: Function that requests a letter and is also responsible for catching possible errors.
 - **pickLetter()**: Function that marks a selected letter (important for the *requestInput* function) and removes one life if it's a wrong letter.
 - **verifyGameStatus()**: Function that verifies if the player has either won or lost.
-- **closeInput()**: Function that closes the input.
 
 ## **Constructor**
 
@@ -70,5 +62,3 @@ public PrincipalGame() {
 ```
 
 Initialize the main game variables.
-
-##
