@@ -33,7 +33,7 @@ import java.util.Scanner;
 import java.util.NoSuchElementException;
 ```
 
-### *Class HangmanMain**
+### **Class HangmanMain**
 ```java
 import functions.*;
 import functions.PrincipalGame.GameStatus;
