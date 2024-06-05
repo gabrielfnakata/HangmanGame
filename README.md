@@ -4,7 +4,7 @@ This is a popular simple game made in Java, where you have to guess all the lett
 
 ## **Project Structure**
 
-The main of the Hangman Game include:
+The *Hangman_Game* includes:
 
 ### **1. Classes**
 
